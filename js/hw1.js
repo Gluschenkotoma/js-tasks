@@ -86,15 +86,40 @@ sayHi();
 // Вызов makeMessage('Scanner', 3500) возвращает "You picked Scanner, price per item is 3500 credits"
 // Вызов makeMessage('Reactor', 8000) возвращает "You picked Reactor, price per item is 8000 credits"
 // Вызов makeMessage('Engine', 4070) возвращает "You picked Engine, price per item is 4070 credits"
-function makeMessage(name, price) {
-  const message = `You picked ${name}, price per item is ${price} credits`;
 
-  console.log(message);
-  return message;
-}
-makeMessage("Radar", 6150);
-makeMessage("Scanner", 3500);
-makeMessage("Reactor", 8000);
-makeMessage("Engine", 4070);
+// function makeMessage(name, price) {
+//   const message = `You picked ${name}, price per item is ${price} credits`;
+
+//   console.log(message);
+//   return message;
+// }
+// makeMessage("Radar", 6150);
+// makeMessage("Scanner", 3500);
+// makeMessage("Reactor", 8000);
+// makeMessage("Engine", 4070);
 
 // task11
+// Функция calculateTotalPrice считает и возвращает общую сумму покупки.
+// Она принимает два параметра, значения которых будут задаваться во время её вызова.
+
+// orderedQuantity - количество единиц товара в заказе;
+// pricePerItem - цена одной единицы товара.
+// Дополни код функции так, чтобы в переменную totalPrice записывалась общая сумма покупки,
+// результат умножения кол - ва товаров на цену одного.
+
+// Объявлена функция calculateTotalPrice (orderedQuantity, pricePerItem)
+// Вызов calculateTotalPrice(5, 100) возвращает 500
+// Вызов calculateTotalPrice(8, 60) возвращает 480
+// Вызов calculateTotalPrice('3, 400) возвращает 1200
+// Вызов calculateTotalPrice(1, 3500) возвращает 3500
+// Вызов calculateTotalPrice(12, 70) возвращает 840
+// Вызов функции со случайными, но валидными аргументами, возвращает правильное значение
+function calculateTotalPrice(orderedQuantity, pricePerItem) {
+  const totalPrice = orderedQuantity + pricePerItem;
+  return totalPrice;
+}
+calculateTotalPrice(5, 100);
+calculateTotalPrice(8, 60);
+calculateTotalPrice(3, 400);
+calculateTotalPrice(1, 3500);
+calculateTotalPrice(12, 70);
