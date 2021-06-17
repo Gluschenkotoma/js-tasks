@@ -1,1 +1,1 @@
-import "./js/hw1";
+import "./js/hw1.js";
