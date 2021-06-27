@@ -326,3 +326,855 @@
 // console.log(apartment.area);
 // console.log(apartment.rooms);
 // console.log(apartment.location);
+
+// task8
+// Короткие свойства
+// Иногда, при создании объекта, значение свойства необходимо взять из переменной или параметра функции с таким же именем, как и само свойство.
+// Синтксис в следующем примере слишком громоздкий, потому что приходится дублировать имя свойства и имя переменной, в которой хранится необходимое значение.
+// const name = "Генри Сибола";
+// const age = 25;
+
+// const user = {
+//   name: name,
+//   age: age
+// };
+// console.log(user.name); // "Генри Сибола"
+// console.log(user.age); // 25
+// Синтаксис коротких свойств (shorthand properties) решает эту проблему, позволяя использовать имя переменной как имя свойства, а её значение как значение свойства.
+// const name = "Генри Сибола";
+// const age = 25;
+
+// const user = {
+//   name,
+//   age
+// };
+// console.log(user.name); // "Генри Сибола"
+// console.log(user.age); // 25
+// То есть, при объявлении объекта достаточно указать только имя свойства, а значение будет взято из переменной с аналогичным именем.
+
+// Задание
+// Дополни код объявления объекта так, чтобы у него были свойства name, price, image и tags со значениями из переменных с аналогичными именами. Обязательно используй синтаксис коротких свойств.
+
+// Тесты
+// Объявлена переменная product
+// Значение переменной product это объект
+// Значение вложенного свойства name это строка "Repair Droid"
+// Значение вложенного свойства price это число 2500
+// Значение вложенного свойства image это строка "https://via.placeholder.com/640x480"
+// Значение вложенного свойства tags это массив ["on sale","trending", "best buy"]
+
+// const name = "Repair Droid";
+// const price = 2500;
+// const image = "https://via.placeholder.com/640x480";
+// const tags = ["on sale", "trending", "best buy"];
+
+// const product = {
+//   name,
+//   price,
+//   image,
+//   tags,
+// };
+
+// task9
+// Вычисляемые свойства
+// Бывают ситуации, когда при объявлении обьекта необходимо добавить свойство с именем, которое мы заранее не знаем, потому что оно хранится как значение переменной или как результат выполнения функции.
+// Раньше для этого необходимо было сначала создать объект, а потом добавлять свойства через квадратные скобки, что не совсем удобно.
+
+// const propName = "name";
+// const user = {
+//   age: 25
+// };
+
+// user[propName] = "Генри Сибола";
+// console.log(user.name); // "Генри Сибола"
+// Синтаксис вычисляемых свойств (computed properties) помогает избежать лишнего кода и в некоторых случаях упростить его. Значением вычисляемого свойства может быть любое валидное выражение.
+
+// const propName = "name";
+// const user = {
+//   age: 25,
+//   // Имя этого свойства будет взято из значения переменной propName
+//   [propName]: "Генри Сибола"
+// };
+
+// console.log(user.name); // "Генри Сибола"
+
+// Задание
+// Дополни код объявления объекта credentials так, чтобы в результате у него были два свойства: email и password, имена которых хранятся в переменных emailInputName и passwordInputName.
+// Значением свойства email должна быть строка "henry.carter@aptmail.com", а значением свойства password - строка "jqueryismyjam".
+// Тесты
+// Объявлена переменная credentials
+// Значение переменной credentials это объект
+// В объекте credentials есть свойство email
+// Значение вложенного свойства email это строка "henry.carter@aptmail.com"
+// В объекте credentials есть свойство password
+// Значение вложенного свойства password это строка "jqueryismyjam"
+
+// const emailInputName = "email";
+// const passwordInputName = "password";
+// const credentials = {
+//   [emailInputName]: "henry.carter@aptmail.com",
+//   [passwordInputName]: "jqueryismyjam",
+// };
+// console.log(credentials.email);
+// console.log(credentials.password);
+
+// task10
+// Цикл for...in
+// В отличии от массива или строки, объект - это не итерируемая сущность, то есть его нельзя перебрать циклами for или for...of. Для перебора объектов используется специальный цикл for...in, который перебирает ключи объекта object.
+// for (key in object) {
+//   // инструкции
+// }
+// Переменная key доступная только в теле цикла. На каждой итерации в неё будет записано значение ключа (имя) свойства. Для того чтобы получить значение свойства с таким ключом (именем), используется синтаксис квадратных скобок.
+// const book = {
+//   title: "Последнее королевство",
+//   author: "Бернард Корнуэлл",
+//   genres: ["историческая проза", "приключения"],
+//   rating: 8.38,
+// };
+// for (const key in book) {
+//   // Ключ
+//   console.log(key);
+//   // Значение свойства с таким ключом
+//   console.log(book[key]);
+// }
+
+// Задание
+// Перебери объект apartment используя цикл for...in и запиши в массив keys все его ключи, а в массив values все значения его свойств.
+// Тесты
+// Объявлена переменная apartment
+// Значение переменной apartment это объект
+// Объявлена переменная keys
+// Значение переменной keys это массив ['descr', 'rating', 'price']
+// Объявлена переменная values
+// Значение переменной values это массив ['Spacious apartment in the city center', 4, 2153]
+
+// const apartment = {
+//   descr: "Spacious apartment in the city center",
+//   rating: 4,
+//   price: 2153,
+// };
+// const keys = [];
+// const values = [];
+// for (const key in apartment) {
+//   // console.log(key) это вывод ключей;
+//   keys.push(key);
+//   //   console.log(apartment[key]) - это вывод значений ключей;
+//   values.push(apartment[key]);
+// }
+// console.log(keys);
+// console.log(values);
+
+// Variant2
+// const apartment = {
+//   descr: "Spacious apartment in the city center",
+//   rating: 4,
+//   price: 2153,
+// };
+// const keys = Object.keys(apartment);
+// const values = Object.values(apartment);
+// console.log(keys);
+// console.log(values);
+
+// task11
+// Метод hasOwnProperty()
+// Разберём концепцию собственных и несобственных свойств объекта и научимся правильно использовать цикл for...in.
+// const animal = {
+//   legs: 4,
+// };
+// const dog = Object.create(animal);
+// dog.name = "Манго";
+// console.log(dog); // {name: 'Манго'}
+// console.log(dog.name); // 'Манго'
+// console.log(dog.legs); // 4
+// Метод Object.create(animal) создаёт и возвращает новый объект, связывая его с объектом animal. Поэтому можно получить значение свойства legs обратившись к нему как dog.legs, хотя его нет в объекте dog - это несобственное свойство из объекта animal.
+// Оператор in, который используется в цикле for...in, не делает различия между собственными и несобственными свойствами объекта. Эта особенность мешает, так как мы всегда хотим перебрать только собственные свойства. Для того чтобы узнать есть в объекте собственное свойство или нет, используется метод hasOwnProperty(key), который возвращает true или false.
+// // ❌ Возвращает true для всех свойств
+// console.log("name" in dog); // true
+// console.log("legs" in dog); // true
+// // ✅ Возвращает true только для собственных свойств
+// console.log(dog.hasOwnProperty("name")); // true
+// console.log(dog.hasOwnProperty("legs")); // false
+// Поэтому при переборе циклом for...in необходимо на каждой итерации добавить проверку на собственное свойство. Даже если сейчас мы уверены в том что у объекта нет несобственных свойств, это оградит от возможных ошибок в будущем.
+
+// const book = {
+//   title: "Последнее королевство",
+//   author: "Бернард Корнуэлл",
+//   genres: ["историческая проза", "приключения"],
+//   rating: 8.38,
+// };
+// for (const key in book) {
+//   // Если это собственное свойство - выполняем тело if
+//   if (book.hasOwnProperty(key)) {
+//     console.log(key);
+//     console.log(book[key]);
+//   }
+
+//   // Если это не собственное свойство - ничего не делаем
+// }
+
+// Задание
+// Выполни рефакторинг решения предыдущего задания добавив в цикл for...in проверку на собственное свойство.
+// Тесты
+// Объявлена переменная advert.
+// Значение переменной advert это объект.
+// Объявлена переменная apartment.
+// Значение переменной apartment это объект.
+// Объявлена переменная keys.
+// Значение переменной keys это массив ['descr', 'rating', 'price'].
+// Объявлена переменная values.
+// Значение переменной values это массив ['Spacious apartment in the city center', 4, 2153].
+
+// const keys = [];
+// const values = [];
+// const advert = {
+//   service: "apt",
+// };
+// const apartment = Object.create(advert);
+// apartment.descr = "Spacious apartment in the city center";
+// apartment.rating = 4;
+// apartment.price = 2153;
+
+// for (const key in apartment) {
+//   if (apartment.hasOwnProperty(key)) {
+//     keys.push(key);
+//     values.push(apartment[key]);
+//   }
+// }
+// console.log(keys);
+// console.log(values);
+
+// task12
+// Задача. Подсчёт свойств
+// Задание
+// Напиши функцию countProps(object), которая считает и возвращает количество собственных свойств объекта в параметре object. Используй переменную propCount для хранения количества свойств объекта.
+// Тесты
+// Объявлена функция countProps(object)
+// Вызов countProps({}) возвращает 0
+// Вызов countProps({ name: "Mango", age: 2 }) возвращает 2
+// Вызов countProps{ mail: "poly@mail.com", isOnline: true, score: 500 }) возвращает 3
+// Функция подсчитывает только собственные свойства объекта
+
+// function countProps(object) {
+//   let propCount = 0;
+//   propCount = Object.keys(object).length;
+//   return propCount;
+// }
+// console.log(countProps({}));
+// console.log(countProps({ name: "Mango", age: 2 }));
+// console.log(countProps({ mail: "poly@mail.com", isOnline: true, score: 500 }));
+// variant2
+// function countProps(object) {
+//   let propCount = 0;
+
+//   for (const key in object) {
+//     if (object.hasOwnProperty(key)) {
+//       propCount += 1;
+//     }
+//   }
+//   return propCount;
+// }
+
+// task13
+// Метод Object.keys()
+// У встроенного класса Object есть несколько полезных методов для работы с объектами. Первый из них это Object.keys(obj), который принимает объект и возвращает массив ключей его собственных свойств. Если в объекте нет свойств, метод вернёт пустой массив.
+
+// const book = {
+//   title: "Последнее королевство",
+//   author: "Бернард Корнуэлл",
+//   genres: ["историческая проза", "приключения"],
+//   rating: 8.38,
+// };
+// const keys = Object.keys(book);
+// console.log(keys); // ['title', 'author', 'genres', 'rating']
+// Скомбинировав результат Object.keys() и цикл for...of можно удобно перебрать собственные свойства объекта, не прибегая к использованию архаического цикла for...in с проверками принадлежности свойств.
+
+// const book = {
+//   title: "Последнее королевство",
+//   author: "Бернард Корнуэлл",
+//   genres: ["историческая проза", "приключения"],
+//   rating: 8.38,
+// };
+// const keys = Object.keys(book);
+
+// for (const key of keys) {
+//   // Ключ
+//   console.log(key);
+//   // Значение свойства
+//   console.log(book[key]);
+// }
+// Мы перебираем массив ключей объекта и на каждой итерации получаем значение свойства с таким ключом.
+
+// Задание
+// Перебери объект apartment используя метод Object.keys() и цикл for...of. Запиши в переменную keys массив ключей собственных свойств объекта apartment, и добавь в массив values все значения его свойств.
+// Тесты
+// Объявлена переменная apartment.
+// Значение переменной apartment это объект.
+// Объявлена переменная keys.
+// Значение переменной keys это массив ['descr', 'rating', 'price'].
+// Значение переменной keys получено с помощью метода Object.keys().
+// Объявлена переменная values.
+// Значение переменной values это массив ['Spacious apartment in the city center', 4, 2153].
+// Значение переменной values получено с помощью цикла for...of.
+
+// const apartment = {
+//   descr: "Spacious apartment in the city center",
+//   rating: 4,
+//   price: 2153,
+// };
+// const values = [];
+// const keys = Object.keys(apartment);
+// for (const key of keys) {
+//   values.push(apartment[key]);
+// }
+// console.log(keys);
+// console.log(values);
+
+// task14
+// Задача. Подсчёт свойств 2.0
+// Задание
+// Выполни рефакторинг функции countProps(object) используя метод Object.keys() и, возможно, цикл for...of.
+// Тесты
+// Объявлена функция countProps(object)
+// Вызов countProps({}) возвращает 0
+// Вызов countProps({ name: "Mango", age: 2 }) возвращает 2
+// Вызов countProps({ mail: "poly@mail.com", isOnline: true, score: 500 }) возвращает 3
+// Функция подсчитывает только собственные свойства объекта
+// Функция использует метод Object.keys() и, возможно, цикл for...of
+
+// function countProps(object) {
+//   let propCount = 0;
+//   propCount = Object.keys(object).length;
+//   return propCount;
+// }
+// console.log(countProps({}));
+// console.log(countProps({ name: "Mango", age: 2 }));
+// console.log(countProps({ mail: "poly@mail.com", isOnline: true, score: 500 }));
+
+// task15
+// Метод Object.values()
+// Если метод Object.keys(obj) возвращает массив ключей собственных свойств объекта, то метод Object.values(obj) возвращает массив значений его собственных свойств. Если в объекте нет свойств, метод Object.values(obj) вернёт пустой массив.
+// const book = {
+//   title: "Последнее королевство",
+//   author: "Бернард Корнуэлл",
+//   rating: 8.38,
+// };
+// const keys = Object.keys(book);
+// console.log(keys); // ["title", "author", "genres", "rating"]
+// const values = Object.values(book);
+// console.log(values); // ["Последнее королевство", "Бернард Корнуэлл", 8.38]
+// Массив значений свойств также можно перебрать циклом for...of, например для получения общей суммы числовых значений.
+
+// Задание
+// Запиши в переменную keys массив ключей собственных свойств объекта apartment, а в переменную values массив всех значений его свойств. Используй методы Object.keys() и Object.values().
+// Тесты
+// Объявлена переменная apartment
+// Значение переменной apartment это объект
+// Объявлена переменная keys
+// Значение переменной keys это массив ["descr", "rating", "price"]
+// Объявлена переменная values
+// Значение переменной values это массив ["Spacious apartment in the city center", 4, 2153]
+// Для получения массива ключей объекта apartment используется Object.keys()
+// Для получения массива значений объекта apartment используется Object.values()
+
+// const apartment = {
+//   descr: "Spacious apartment in the city center",
+//   rating: 4,
+//   price: 2153,
+// };
+// const keys = Object.keys(apartment);
+// const values = Object.values(apartment);
+
+// task16
+// Задача. Расходы на зарплату
+// Задание
+// Напиши функцию countTotalSalary(salaries) которая принимает объект зарплат, где имя свойства это имя сотрудника, а значение свойства это зарплата. Функция должна рассчитать
+// общую сумму зарплат сотрудников и вернуть её.Используй переменную totalSalary для хранения общей суммы зарплаты.
+// Тесты
+// Объявлена функция countTotalSalary(salaries)
+// Вызов countTotalSalary({}) возвращает 0
+// Вызов countTotalSalary({ mango: 100, poly: 150, alfred: 80 }) возвращает 330
+// Вызов countTotalSalary({ kiwi: 200, poly: 50, ajax: 150 }) возвращает 400
+// Функция учитывает только собственные свойства объекта
+
+// function countTotalSalary(salaries) {
+//   let totalSalary = 0;
+//   const keys = Object.keys(salaries);
+
+//   for (const key of keys) {
+//     totalSalary += salaries[key];
+//   }
+//   return totalSalary;
+// }
+// console.log(countTotalSalary({}));
+// console.log(countTotalSalary({ mango: 100, poly: 150, alfred: 80 }));
+// console.log(countTotalSalary({ kiwi: 200, poly: 50, ajax: 150 }));
+
+// task17
+// Массив объектов
+// В стандартный набор повседневных задач разработчика входит манипуляция массивом однотипных объектов.
+// Это значит что все объекты в массиве гарантированно будут иметь одинаковый набор свойств, но с разными значениями.
+// const books = [
+//   {
+//     title: "Последнее королевство",
+//     author: "Бернард Корнуэлл",
+//     rating: 8.38,
+//   },
+//   {
+//     title: "На берегу спокойных вод",
+//     author: "Роберт Шекли",
+//     rating: 8.51,
+//   },
+//   {
+//     title: "Сон смешного человека",
+//     author: "Федор Достоевский",
+//     rating: 7.75,
+//   },
+// ];
+// Для перебора такого массива используется стандартный цикл for...of.
+// Значения свойств каждого объекта можно получить используя синтаксис «через точку»,
+// так как в каждом объекте набор свойств и их имена будут одинаковые, отличаются только значения.
+
+// for (const book of books) {
+//   // Объект книги
+//   console.log(book);
+//   // Название
+//   console.log(book.title);
+//   // Автор
+//   console.log(book.author);
+//   // Рейтинг
+//   console.log(book.rating);
+// }
+
+// Задание
+// Перебери массив объектов colors используя цикл for...of. Добавь в массив hexColors значения свойств hex, а в массив rgbColors значения свойств rgb из всех объектов массива colors.
+// Тесты
+// Объявлена переменная colors
+// Значение переменной colors это массив
+// Объявлена переменная hexColors
+// Значение переменной hexColors это массив ["#f44336", "#2196f3", "#4caf50", "#ffeb3b"]
+// Объявлена переменная rgbColors
+// Значение переменной rgbColors это массив ["244,67,54", "33,150,243", "76,175,80", "255,235,59"]
+
+// const colors = [
+//   { hex: "#f44336", rgb: "244,67,54" },
+//   { hex: "#2196f3", rgb: "33,150,243" },
+//   { hex: "#4caf50", rgb: "76,175,80" },
+//   { hex: "#ffeb3b", rgb: "255,235,59" },
+// ];
+
+// const hexColors = [];
+// const rgbColors = [];
+// for (const color of colors) {
+//   hexColors.push(color.hex);
+//   rgbColors.push(color.rgb);
+// }
+// console.log(hexColors);
+// console.log(rgbColors);
+
+// task18
+// Задача. Поиск объекта по значению свойства
+// Задание
+// Напиши функцию getProductPrice(productName) которая принимает один параметр productName - название продукта.
+// Функция ищет объект продукта с таким именем(свойство name) в массиве products и возвращает его цену(свойство price).Если продукт с таким названием не найден, функция должна возвращать null.
+// Тесты
+// Объявлена функция getProductPrice(productName).
+// Вызов getProductPrice("Radar") возвращает 1300.
+// Вызов getProductPrice("Grip") возвращает 1200.
+// Вызов getProductPrice("Scanner") возвращает 2700.
+// Вызов getProductPrice("Droid") возвращает 400.
+// Вызов getProductPrice("Engine") возвращает null.
+
+// const products = [
+//   { name: "Radar", price: 1300, quantity: 4 },
+//   { name: "Scanner", price: 2700, quantity: 3 },
+//   { name: "Droid", price: 400, quantity: 7 },
+//   { name: "Grip", price: 1200, quantity: 9 },
+// ];
+
+// function getProductPrice(productName) {
+//   for (const product of products) {
+//     if (product.name === productName) {
+//       return product.price;
+//     }
+//   }
+//   return null;
+// }
+// console.log(getProductPrice("Radar"));
+// console.log(getProductPrice("Grip"));
+// console.log(getProductPrice("Scanner"));
+// console.log(getProductPrice("Droid"));
+// console.log(getProductPrice("Engine"));
+
+// task19
+// Задача. Коллекция значений свойства
+// Задание
+// Напиши функцию getAllPropValues(propName) которая принимает один параметр propName - имя(ключ) свойства.
+// Функция должна вернуть массив всех значений свойства с таким именем из каждого объекта в массиве products.Если в объектах нет свойства с таким именем, функция должна вернуть пустой массив.
+// Тесты
+// Объявлена функция getAllPropValues(propName)
+// Вызов getAllPropValues("name") возвращает ["Radar", "Scanner", "Droid", "Grip"]
+// Вызов getAllPropValues("quantity") возвращает [4, 3, 7, 9]
+// Вызов getAllPropValues("price") возвращает [1300, 2700, 400, 1200]
+// Вызов getAllPropValues("category") возвращает []
+
+// const products = [
+//   { name: "Radar", price: 1300, quantity: 4 },
+//   { name: "Scanner", price: 2700, quantity: 3 },
+//   { name: "Droid", price: 400, quantity: 7 },
+//   { name: "Grip", price: 1200, quantity: 9 },
+// ];
+
+// function getAllPropValues(propName) {
+//   const value = [];
+//   for (const product of products) {
+//     if (!product[propName]) {
+//       return [];
+//     }
+//     value.push(product[propName]);
+//   }
+//   return value;
+// }
+// console.log(getAllPropValues("name"));
+// console.log(getAllPropValues("quantity"));
+// console.log(getAllPropValues("price"));
+// console.log(getAllPropValues("category"));
+
+// task20
+// Задача. Общая стоимость товара
+// Задание
+// Напиши функцию calculateTotalPrice(productName) которая принимает один параметр productName - название товара.
+// Функция должна вернуть общую стоимость(цена * количество) товара с таким именем из массива products.
+// Тесты
+// Объявлена функция calculateTotalPrice(productName)
+// Вызов calculateTotalPrice("Blaster") возвращает 0
+// Вызов calculateTotalPrice("Radar") возвращает 5200
+// Вызов calculateTotalPrice("Droid") возвращает 2800
+// Вызов calculateTotalPrice("Grip") возвращает 10800
+// Вызов calculateTotal Price("Scanner") возвращает 8100
+
+// const products = [
+//   { name: "Radar", price: 1300, quantity: 4 },
+//   { name: "Scanner", price: 2700, quantity: 3 },
+//   { name: "Droid", price: 400, quantity: 7 },
+//   { name: "Grip", price: 1200, quantity: 9 },
+// ];
+
+// function calculateTotalPrice(productName) {
+//   for (const product of products) {
+//     if (product.name === productName) {
+//       return product.price * product.quantity;
+//     }
+//   }
+//   return 0;
+// }
+
+// console.log(calculateTotalPrice("Blaster"));
+// console.log(calculateTotalPrice("Radar"));
+// console.log(calculateTotalPrice("Droid"));
+// console.log(calculateTotalPrice("Grip"));
+// console.log(calculateTotalPrice("Scanner"));
+
+// task21
+// Деструктуризация объектов
+// Сложные данные всегда представлены объектом. Множественные обращения к свойствам объекта визуально загрязняют код.
+// const book = {
+//   title: "Последнее королевство",
+//   author: "Бернард Корнуэлл",
+//   genres: ["историческая проза", "приключения"],
+//   public: true,
+//   rating: 8.38,
+// };
+// const accessType = book.public ? "публичном" : "закрытом";
+// console.log(accessType); "публичном";
+// const message = `Книга ${book.title} автора ${book.author} с рейтингом ${book.rating} находится в ${accessType} доступе.`;
+
+// Деструктуризация позволяет «распаковать» значения свойств объекта в локальные переменные. Это делает код в месте их использования менее «шумным».
+// const book = {
+//   title: "Последнее королевство",
+//   author: "Бернард Корнуэлл",
+//   genres: ["историческая проза", "приключения"],
+//   public: true,
+//   rating: 8.38,
+// };
+
+// // Деструктуризируем
+// const { title, author, public, rating, coverImage } = book;
+// console.log(coverImage); // undefined
+// const accessType = public ? "публичном" : "закрытом";
+// const message = `Книга ${title} автора ${author} с рейтингом ${rating} находится в ${accessType} доступе.`;
+// Деструктуризация всегда находится в левой части операции присвоения. Переменным внутри фигурных скобок присваиваются значения свойств объекта. Если имя переменной и имя свойства совпадают, то происходит присваивание, в противном случае ей будет присвоено undefined. Порядок объявления переменных в фигурных скобках не важен.
+
+// Задание
+// Пришел трёхдневный прогноз максимальных температур и мы считаем среднюю температуру за три дня (meanTemperature). Замени объявления переменных yesterday, today и tomorrow одной операцией деструктуризации свойств объекта highTemperatures.
+// Тесты
+// Объявлена переменная highTemperatures
+// Значение переменной highTemperatures это объект
+// Объявлена переменная yesterday с помощью деструктуризации
+// Значение переменной yesterday это число 28
+// Объявлена переменная today с помощью деструктуризации
+// Значение переменной today это число 26
+// Объявлена переменная tomorrow с помощью деструктуризации
+// Значение переменной tomorrow это число 33
+// Объявлена переменная meanTemperature
+// Значение переменной meanTemperature это число 29
+// Используется синтаксис деструктуризации объекта highTemperatures
+
+// const highTemperatures = {
+//   yesterday: 28,
+//   today: 26,
+//   tomorrow: 33,
+// };
+// const { yesterday, today, tomorrow } = highTemperatures;
+
+// // (const yesterday = highTemperatures.yesterday;
+// // const today = highTemperatures.today;
+// // const tomorrow = highTemperatures.tomorrow;)
+
+// const meanTemperature = (yesterday + today + tomorrow) / 3;
+// console.log(meanTemperature);
+
+// task22
+// Значения по умолчанию
+// Для того чтобы избежать присвоения undefined при деструктуризации несуществующих свойств, можно задать переменным значения по умолчанию, которые будут присвоены только в случае когда в объекте нет свойства с таким именем.
+// const book = {
+//   title: "Последнее королевство",
+//   author: "Бернард Корнуэлл",
+// };
+// // Добавим картинку обложки если её нет в объекте книги
+// const {
+//   title,
+//   coverImage = "https://via.placeholder.com/640/480",
+//   author,
+// } = book;
+// console.log(title); // Последнее королевство
+// console.log(author); // Бернард Корнуэлл
+// console.log(coverImage); // https://via.placeholder.com/640/480
+
+// Задание
+// В прогнозе максимальных температур также может быть необязательное свойство icon - иконка погоды. Замени объявления переменных yesterday, today, tomorrow и icon одной операцией деструктуризации свойств объекта highTemperatures. Задай значение по умолчанию для icon - строку "https://www.flaticon.com/svg/static/icons/svg/2204/2204346.svg".
+// Тесты
+// Объявлена переменная highTemperatures
+// Значение переменной highTemperatures это объект
+// Объявлена переменная highTemperatures
+// Значение переменной highTemperatures это объект
+// Объявлена переменная yesterday с помощью деструктуризации
+// Значение переменной yesterday это число 28
+// Объявлена переменная today с помощью деструктуризации
+// Значение переменной today это число 26
+// Объявлена переменная tomorrow с помощью деструктуризации
+// Значение переменной tomorrow это число 33
+// Объявлена переменная icon с помощью деструктуризации
+// Значение переменной icon это строка "https://www.flaticon.com/svg/static/icons/svg/2204/2204346.svg".
+// Используется деструктуризация объекта
+
+// const highTemperatures = {
+//   yesterday: 28,
+//   today: 26,
+//   tomorrow: 33,
+// };
+
+// const {
+//   yesterday,
+//   today,
+//   tomorrow,
+//   icon = "https://www.flaticon.com/svg/static/icons/svg/2204/2204346.svg",
+// } = highTemperatures;
+
+// const meanTemperature = (yesterday + today + tomorrow) / 3;
+// console.log(meanTemperature);
+
+// task23
+// Изменение имени переменной
+// При деструктуризации можно изменить имя переменной в которую распаковывается значение свойства. Сначала пишем имя свойства из которого хотим получить значение, после чего ставим двоеточие и пишем имя переменной в которую необходимо поместить значение этого свойства.
+// const firstBook = {
+//   title: "Последнее королевство",
+//   coverImage:
+//     "https://images-na.ssl-images-amazon.com/images/I/51b5YG6Y1rL.jpg",
+// };
+// const {
+//   title: firstTitle,
+//   coverImage: firstCoverImage = "https://via.placeholder.com/640/480",
+// } = firstBook;
+
+// console.log(firstTitle); // Последнее королевство
+// console.log(firstCoverImage); // https://images-na.ssl-images-amazon.com/images/I/51b5YG6Y1rL.jpg
+
+// const secondBook = {
+//   title: "Сон смешного человека",
+// };
+
+// const {
+//   title: secondTitle,
+//   coverImage: secondCoverImage = "https://via.placeholder.com/640/480",
+// } = secondBook;
+// console.log(secondTitle); // Сон смешного человека
+// console.log(secondCoverImage); // https://via.placeholder.com/640/480
+// Такая запись читается как «Создать переменную firstTitle, в которую поместить значение свойства title из объекта firstBook» и т. д.
+
+// Задание
+// Замени объявления переменных highYesterday, highToday, highTomorrow и highIcon одной операцией деструктуризации свойств объекта highTemperatures. Задай значение по умолчанию для highIcon - строку "https://www.flaticon.com/svg/static/icons/svg/2204/2204346.svg".
+// Тесты
+// Объявлена переменная highTemperatures
+// Значение переменной highTemperatures это объект
+// Объявлена переменная highYesterday
+// Значение переменной highYesterday это число 28
+// Объявлена переменная highToday
+// Значение переменной highToday это число 26
+// Объявлена переменная highTomorrow
+// Значение переменной highTomorrow это число 33
+// Объявлена переменная highIcon
+// Значение переменной highIcon это строка "https://www.flaticon.com/svg/static/icons/svg/2204/2204346.svg"
+// Используется деструктуризация объекта
+
+// const highTemperatures = {
+//   yesterday: 28,
+//   today: 26,
+//   tomorrow: 33,
+// };
+// const {
+//   yesterday: highYesterday,
+//   today: highToday,
+//   tomorrow: highTomorrow,
+//   icon: highIcon = "https://www.flaticon.com/svg/static/icons/svg/2204/2204346.svg",
+// } = highTemperatures;
+
+// const meanTemperature = (highYesterday + highToday + highTomorrow) / 3;
+// console.log(meanTemperature);
+// console.log(highTemperatures);
+
+// task24
+// Деструктуризация в циклах
+// При переборе массива объектов циклом for...of получаются множественные обращения к свойствам объекта.
+// const books = [
+//   {
+//     title: "Последнее королевство",
+//     author: "Бернард Корнуэлл",
+//     rating: 8.38,
+//   },
+//   {
+//     title: "На берегу спокойных вод",
+//     author: "Роберт Шекли",
+//     rating: 8.51,
+//   },
+// ];
+
+// for (const book of books) {
+//   console.log(book.title);
+//   console.log(book.author);
+//   console.log(book.rating);
+// }
+// Для того, чтобы сократить количество повторений, можно деструктуризировать свойства объекта в локальные переменные в теле цикла.
+// for (const book of books) {
+//   const { title, author, rating } = book;
+
+//   console.log(title);
+//   console.log(author);
+//   console.log(rating);
+// }
+// Если в объекте немного свойств, деструктуризацию можно выполнить прямо в месте объявления переменной book.
+// for (const { title, author, rating } of books) {
+//   console.log(title);
+//   console.log(author);
+//   console.log(rating);
+// }
+
+// Задание
+// Выполни рефакторинг цикла for...of так, чтобы в нём использовалась деструктуризация объекта..
+// Тесты
+// Объявлена переменная colors
+// Значение переменной colors это массив
+// Объявлена переменная hexColors
+// Значение переменной hexColors это массив ["#f44336", "#2196f3", "#4caf50", "#ffeb3b"]
+// Объявлена переменная rgbColors
+// Значение переменной rgbColors это массив ["244,67,54", "33,150,243", "76,175,80", "255,235,59"]
+// Для перебора массива используется цикл for...of
+// В цикле for...of используется деструктуризация объекта
+
+// const colors = [
+//   { hex: "#f44336", rgb: "244,67,54" },
+//   { hex: "#2196f3", rgb: "33,150,243" },
+//   { hex: "#4caf50", rgb: "76,175,80" },
+//   { hex: "#ffeb3b", rgb: "255,235,59" },
+// ];
+
+// const hexColors = [];
+// const rgbColors = [];
+
+// for (const { hex, rgb } of colors) {
+//   hexColors.push(hex);
+//   rgbColors.push(rgb);
+// }
+// console.log(hexColors);
+// console.log(rgbColors);
+
+// task25
+// Глубокая деструктуризация
+// Для деструктуризации свойств вложенных объектов используются те же принципы, что и в трёх предыдущих упражнениях.
+
+// const user = {
+//   name: "Jacques Gluke",
+//   tag: "jgluke",
+//   stats: {
+//     followers: 5603,
+//     views: 4827,
+//     likes: 1308,
+//   },
+// };
+
+// const {
+//   name,
+//   tag,
+//   stats: { followers, views: userViews, likes: userLikes = 0 },
+// } = user;
+
+// console.log(name); // Jacques Gluke
+// console.log(tag); // jgluke
+// console.log(followers); // 5603
+// console.log(userViews); // 4827
+// console.log(userLikes); // 1308
+// Задание
+// Мы получили прогноз погоды на два дня, с минимальными и максимальными температурами, а также необязательными иконками. Замени объявления всех переменных одной операцией деструктуризации свойств объекта forecast. Задай значение по умолчанию для иконок, переменных todayIcon и tomorrowIcon - строку "https://www.flaticon.com/svg/static/icons/svg/2204/2204346.svg".
+
+// Тесты
+// Объявлена переменная forecast
+// Значение переменной forecast это объект
+// Объявлена переменная highToday с помощью деструктуризации
+// Значение переменной highToday это число 32
+// Объявлена переменная lowToday с помощью деструктуризации
+// Значение переменной lowToday это число 28
+// Объявлена переменная todayIcon с помощью деструктуризации
+// Значение переменной todayIcon это строка "https://www.flaticon.com/svg/static/icons/svg/861/861059.svg"
+// Объявлена переменная highTomorrow с помощью деструктуризации
+// Значение переменной highTomorrow это число 31
+// Объявлена переменная lowTomorrow с помощью деструктуризации
+// Значение переменной lowTomorrow это число 27
+// Объявлена переменная tomorrowIcon с помощью деструктуризации
+// Значение переменной tomorrowIcon это строка "https://www.flaticon.com/svg/static/icons/svg/2204/2204346.svg"
+// Используется синтаксис деструктуризации объекта highTemperatures
+
+// const forecast = {
+//   today: {
+//     low: 28,
+//     high: 32,
+//     icon: "https://www.flaticon.com/svg/static/icons/svg/861/861059.svg",
+//   },
+//   tomorrow: {
+//     low: 27,
+//     high: 31,
+//   },
+// };
+
+// const {
+//   today: {
+//     low: lowToday,
+//     high: highToday,
+//     icon: todayIcon = "https://www.flaticon.com/svg/static/icons/svg/861/861059.svg",
+//   },
+//   tomorrow: {
+//     low: lowTomorrow,
+//     high: highTomorrow,
+//     icon: tomorrowIcon = "https://www.flaticon.com/svg/static/icons/svg/2204/2204346.svg",
+//   },
+// } = forecast;
+
+// task26
