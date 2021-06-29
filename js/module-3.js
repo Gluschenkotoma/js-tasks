@@ -1780,60 +1780,76 @@
 // Объявлена переменная atTheOldToad
 // Значение переменной atTheOldToad это объект
 // Значение свойства atTheOldToad.getPotions это метод объекта
-// Вызов метода atTheOldToad.getPotions() для исходного объекта возвращает [ { name: "Speed potion", price: 460 }, { name: "Dragon breath", price: 780 }, { name: "Stone skin", price: 520 } ]
-// Значение свойства atTheOldToad.addPotion это метод объекта.
-// Для исходного объекта после вызова метода atTheOldToad.addPotion({ name: "Invisibility", price: 620 }), в массиве potions последним элементом будет этот объект
-// Для исходного объекта после вызова метода atTheOldToad.addPotion({ name: "Power potion", price: 270 }), в массиве potions последним элементом будет этот объект
-// Значение свойства atTheOldToad.removePotion это метод объекта
-// Для исходного объекта после вызова метода atTheOldToad.removePotion("Dragon breath"), в свойстве potions будет массив [ { name: "Speed potion", price: 460 }, { name: "Stone skin", price: 520 } ]
-// Для исходного объекта после вызова метода atTheOldToad.removePotion("Speed potion"), в свойстве potions будет массив [ { name: "Dragon breath", price: 780 }, { name: "Stone skin", price: 520 }]
-// Значение свойства atTheOldToad.updatePotionName это метод объекта
-// Для исходного объекта после вызова метода atTheOldToad.updatePotionName("Dragon breath", "Polymorth"),
-// в свойстве potions будет массив[{ name: "Speed potion", price: 460 }, { name: "Polymorth", price: 780 }, { name: "Stone skin", price: 520 }]
-// Для исходного объекта после вызова метода atTheOldToad.updatePotionName("Stone skin", "Invulnerability potion"),
-// в свойстве potions будет массив[{ name: "Speed potion", price: 460 }, { name: "Dragon breath", price: 780 }, { name: "Invulnerability potion", price: 520 }]
 
-const atTheOldToad = {
-  potions: [
-    { name: "Speed potion", price: 460 },
-    { name: "Dragon breath", price: 780 },
-    { name: "Stone skin", price: 520 },
-  ],
-  // Change code below this line
-  getPotions() {
-    return this.potions;
-  },
-  addPotion(potionName) {
-    if (this.potions.includes(potionName)) {
-      return `Potion ${potionName} is already equipped!`;
-    }
+// const atTheOldToad = {
+//   potions: [
+//     { name: "Speed potion", price: 460 },
+//     { name: "Dragon breath", price: 780 },
+//     { name: "Stone skin", price: 520 },
+//   ],
+//   // Change code below this line
+//   getPotions() {
+//     return this.potions;
+//   },
+//   addPotion(potionName) {
+//     if (this.potions.includes(potionName)) {
+//       return `Potion ${potionName} is already equipped!`;
+//     }
 
-    this.potions.push(potionName);
-  },
-  removePotion(potionName) {
-    const { potions } = this;
-    for (const potion of potions) {
-      if (potion.name === potionName) {
-        potions.splice(potions.indexOf(potion), 1);
-        return potion;
-      }
-    }
-    return `Potion ${potionName} is not in inventory!`;
-  },
-  updatePotionName(oldName, newName) {
-    const { potions } = this;
-    for (const potion of potions) {
-      if (potion.name === oldName) {
-        return (potion.name = newName);
-      }
-    }
-    return `Potion ${oldName} is not in inventory!`;
-  },
-};
-console.log(atTheOldToad.potions);
-console.log(atTheOldToad.updatePotionName("Dragon breath", "Polymorth"));
-console.log(atTheOldToad.potions);
+//     this.potions.push(potionName);
+//   },
+//   removePotion(potionName) {
+//     const { potions } = this;
+//     for (const potion of potions) {
+//       if (potion.name === potionName) {
+//         potions.splice(potions.indexOf(potion), 1);
+//         return potion;
+//       }
+//     }
+//     return `Potion ${potionName} is not in inventory!`;
+//   },
+//   updatePotionName(oldName, newName) {
+//     const { potions } = this;
+//     for (const potion of potions) {
+//       if (potion.name === oldName) {
+//         return (potion.name = newName);
+//       }
+//     }
+//     return `Potion ${oldName} is not in inventory!`;
+//   },
+// };
+// console.log(atTheOldToad.potions);
+// console.log(atTheOldToad.getPotions());
+
+// atTheOldToad.addPotion({ name: "Invisibility", price: 620 });
+// console.log(atTheOldToad.potions);
+
+// atTheOldToad.addPotion({ name: "Power potion", price: 270 });
+// console.log(atTheOldToad.potions);
+
+// console.log(atTheOldToad.removePotion("Dragon breath"));
+// console.log(atTheOldToad.potions);
+
+// console.log(atTheOldToad.removePotion("Speed potion"));
+// console.log(atTheOldToad.potions);
+
+// console.log(atTheOldToad.updatePotionName("Dragon breath", "Polymorth"));
+// console.log(atTheOldToad.potions);
+
 // console.log(
 //   atTheOldToad.updatePotionName("Stone skin", "Invulnerability potion")
 // );
 // console.log(atTheOldToad.potions);
+
+// 1 Вызов метода atTheOldToad.getPotions() для исходного объекта возвращает [ { name: "Speed potion", price: 460 }, { name: "Dragon breath", price: 780 }, { name: "Stone skin", price: 520 } ]
+// Значение свойства atTheOldToad.addPotion это метод объекта.
+// 2 Для исходного объекта после вызова метода atTheOldToad.addPotion({ name: "Invisibility", price: 620 }), в массиве potions последним элементом будет этот объект
+// 3 Для исходного объекта после вызова метода atTheOldToad.addPotion({ name: "Power potion", price: 270 }), в массиве potions последним элементом будет этот объект
+//4  Значение свойства atTheOldToad.removePotion это метод объекта
+// Для исходного объекта после вызова метода atTheOldToad.removePotion("Dragon breath"), в свойстве potions будет массив [ { name: "Speed potion", price: 460 }, { name: "Stone skin", price: 520 } ]
+// Для исходного объекта после вызова метода atTheOldToad.removePotion("Speed potion"), в свойстве potions будет массив [ { name: "Dragon breath", price: 780 }, { name: "Stone skin", price: 520 }]
+// 5Значение свойства atTheOldToad.updatePotionName это метод объекта
+// Для исходного объекта после вызова метода atTheOldToad.updatePotionName("Dragon breath", "Polymorth"),
+// в свойстве potions будет массив[{ name: "Speed potion", price: 460 }, { name: "Polymorth", price: 780 }, { name: "Stone skin", price: 520 }]
+// 6Для исходного объекта после вызова метода atTheOldToad.updatePotionName("Stone skin", "Invulnerability potion"),
+// в свойстве potions будет массив[{ name: "Speed potion", price: 460 }, { name: "Dragon breath", price: 780 }, { name: "Invulnerability potion", price: 520 }]
