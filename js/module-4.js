@@ -724,3 +724,63 @@
 
 // // Передаем копию метода showThis с контекстом привязанным к hotel
 // fn(hotel.showThis.bind(hotel)); // {name: "Resort Hotel", showThis: ƒ}
+// ====================================
+
+// задача на тему bind с урока Sandra
+// const mainProduct = {
+//   showPrice() {
+//     console.log(this.price);
+//   },
+//   updatevalue(value) {
+//     if (this.price === value) {
+//       return `the price is the same!`;
+//     }
+//     return (this.price = value);
+//   },
+//   getCost(count = this.count) {
+//     if (this.count >= count) {
+//       return this.price * count;
+//     } else {
+//       return `the product is out of stock!`;
+//     }
+//   },
+// };
+// const product1 = {
+//   name: "banana",
+//   price: 20,
+//   count: 10,
+// };
+
+// const product2 = {
+//   name: "orange",
+//   price: 30,
+//   count: 5,
+// };
+// mainProduct.showPrice.call(product1);
+// mainProduct.showPrice.apply(product2);
+
+// console.log(mainProduct.updatevalue.call(product1, 20));
+// mainProduct.updatevalue.call(product1, 44);
+// mainProduct.showPrice.call(product1);
+
+// console.log(mainProduct.getCost.call(product1, 10));
+// console.log(mainProduct.getCost.call(product1, 11));
+
+// console.log(mainProduct.getCost.apply(product2, [6]));
+// console.log(mainProduct.getCost.apply(product2, [5]));
+
+// const products = [{ name: "lemon", price: 45, count: 20 }];
+// products.push(product1, product2);
+// console.log(products);
+// // функция для подсчета стоимости товара в мвссиве
+// function getFullCost(arr) {
+//   let total = 0;
+//   for (let i = 0; i < arr.length; i++) {
+//     // console.log(arr[i]);
+//     // console.log(mainProduct.getCost.call(arr[i]));
+//     total += mainProduct.getCost.call(arr[i]);
+//   }
+//   //   console.log(total);
+//   return total;
+// }
+// console.log(`getFullCost(products)`, getFullCost(products));
