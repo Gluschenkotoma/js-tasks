@@ -1,31 +1,31 @@
-// class Const {
-//   constructor(param1 = 1, param2 = 0) {
-//     this.prop1 = param1;
-//     this.prop2 = param2;
-//     // this.method1 = function () {
-//     //   console.log(this.prop1);
-//     // };нужно вынести за тело конструктора и обьявить без this
-//   }
-//   method1() {
-//     console.log(this.prop1);
-//   }
-//   method2() {
-//     console.log(this.prop2);
-//   }
-//   method3() {
-//     console.log(`I'm method3`);
-//   }
-// }
-// const classObj = new Const();
-// console.log(classObj);
-// classObj.method1();
-// // 1
-// classObj.method2();
-// // 0
-// classObj.method3();
-// //I'm
+class Const {
+  constructor(param1 = 1, param2 = 0) {
+    this.prop1 = param1;
+    this.prop2 = param2;
+    // this.method1 = function () {
+    //   console.log(this.prop1);
+    // };нужно вынести за тело конструктора и обьявить без this
+  }
+  method1() {
+    console.log(this.prop1);
+  }
+  method2() {
+    console.log(this.prop2);
+  }
+  method3() {
+    console.log(`I'm method3`);
+  }
+}
+const classObj = new Const();
+console.log(classObj);
+classObj.method1();
+// 1
+classObj.method2();
+// 0
+classObj.method3();
+//I'm
 
-// Example user's office on the site
+Example user's office on the site
 class User {
   constructor(login, pass) {
     this._login = login;
