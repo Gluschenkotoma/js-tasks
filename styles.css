@@ -1,0 +1,19 @@
+.color-picker__option {
+  display: inline-block;
+  color: bisque;
+  width: 60px;
+  height: 60px;
+  margin: 4px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+.transaction-table {
+  border: 3px solid black;
+  border-collapse: collapse;
+}
+table th,
+table td {
+  padding: 10px;
+  border: 1px solid #2a2a2a;
+}

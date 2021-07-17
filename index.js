@@ -6,4 +6,7 @@
 // import "./js/module-6.js";
 // import "./js/constructors-prototype.js";
 // import "./js/classes.js";
-import "./js/extendes-prototypes.js";
+// import "./js/extendes-prototypes.js";
+// import "./js/colection-buttons.js";
+// import "./js/create-productcard.js";
+import "./js/transaction-table.js";
