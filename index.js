@@ -9,4 +9,8 @@
 // import "./js/extendes-prototypes.js";
 // import "./js/colection-buttons.js";
 // import "./js/create-productcard.js";
-import "./js/transaction-table.js";
+// import "./js/transaction-table.js";
+// import "./js/events.js";
+// import "./js/form-event.js";
+// import "./js/keyboard-events-mouse.js";
+import "./js/modal-window.js";
