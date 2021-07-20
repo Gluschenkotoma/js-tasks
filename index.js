@@ -13,4 +13,5 @@
 // import "./js/events.js";
 // import "./js/form-event.js";
 // import "./js/keyboard-events-mouse.js";
-import "./js/modal-window.js";
+// import "./js/modal-window.js";
+import "./js/iterating-over-array-methods.js";
