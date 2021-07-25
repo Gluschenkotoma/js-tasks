@@ -14,13 +14,13 @@ const colors = [
   { hex: "#607d8b", rgb: "96,125,139" },
 ];
 // // вариант 1
-// // создать колекцию разметки
-// const paletteContainer = document.querySelector(".js-palette");
-// const cardMarkup = createColorCardMarkup(colors); //рез.фу-ции создания разметки
+// создать колекцию разметки
+const paletteContainer = document.querySelector(".js-palette");
+const cardMarkup = createColorCardMarkup(colors); //рез.фу-ции создания разметки
 
-// paletteContainer.insertAdjacentHTML("beforeend", cardMarkup);
-// // повесить слушателя событий и посмотреть куда кликаем
-// paletteContainer.addEventListener("click", onPaletteContainerClick);
+paletteContainer.insertAdjacentHTML("beforeend", cardMarkup);
+// повесить слушателя событий и посмотреть куда кликаем
+paletteContainer.addEventListener("click", onPaletteContainerClick);
 
 // // создать разметку, функция которая рендерит всю разметку============================
 // function createColorCardMarkup(colors) {
@@ -80,11 +80,6 @@ const colors = [
 // }
 
 //  вариант2
-const paletteContainer = document.querySelector(".js-palette");
-const cardMarkup = createColorCardMarkup(colors); //рез.фу-ции создания разметк
-
-paletteContainer.insertAdjacentHTML("beforeend", cardMarkup);
-paletteContainer.addEventListener("click", onPaletteContainerClick); // повесить слушателя событий и посмотреть куда кликаем
 
 // создать разметку, функция которая рендерит всю разметку============================
 function createColorCardMarkup(colors) {
@@ -114,40 +109,28 @@ function createColorCardMarkup(colors) {
 }
 // делегирование====================================
 function onPaletteContainerClick(e) {
-  // e.target - ссылка на элемент при клике
-  // если при клике по элементу, элемент  не  содержит класс color-swatch то выходим-
-  // или: а есть ли у такого элемента, при клике,  такой клас
-  //   // 1Проверка куда клацнули, клацнули только в swatch
-  //   if (!e.target.classList.contains("color-swatch")) {
-  //     // ф-я клика только по цвету класа color-swatch
-  //     return;
-  //   } //   а если есть делай весь остальной код
-
   const isColorSwatch = e.target.classList.contains("color-swatch");
   if (!isColorSwatch) {
     return;
   }
 
   const swatchEl = e.target;
-  const parentColorCard = swatchEl.closest(".color-card"); // closest- ближайший элемент с таким селектором, вверх по вложенности
-  console.log(parentColorCard); //при клике - ссылка на <div class="color-card">…</div>, ссылка на карточку
+  const parentColorCard = swatchEl.closest(".color-card");
 
   removeActiveCardClass();
-  addactiveCardClass(parentColorCard);
+  addActiveCardClass(parentColorCard);
   setBodyBgColor(swatchEl.dataset.hex);
-  // console.log(e.target.dataset.hex); //получить при клике значения hex,#795548,#607d8b...
 }
 function setBodyBgColor(color) {
-  document.body.style.backgroundColor = swatchEl.dataset.hex; //поменяет цвет боди
+  document.body.style.backgroundColor = color;
 }
 function removeActiveCardClass() {
-  // 2)Получить активные карточки is-active и снимать клас is-active
-  const currentActiveCard = document.querySelector(".color-card.is-active"); //текущая активная карточка
-  // если она есть,то снять клас is - active
+  const currentActiveCard = document.querySelector(".color-card.is-active");
+
   if (currentActiveCard) {
     currentActiveCard.classList.remove("is-active");
   }
 }
-function addactiveCardClass(card) {
-  parentColorCard.classList.add("is-active"); // сделаet класс .color-card.is-active активным
+function addActiveCardClass(card) {
+  card.classList.add("is-active");
 }
