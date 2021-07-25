@@ -2,7 +2,7 @@ import users from "./data/users.js";
 // console.log(users);
 // task1
 // найти уник числа
-const numbers = [1, 4, 6, 8, 4, 1, 2, 1, 3, 41];
+const numbers = [1, 4, 6, 8, 4, 1, 2, 1, 3, 41, 1];
 const numbers1 = [1, 4, 6, 8, 4, 1, 2, 1, 3, 41, 1];
 const words = ["hello", "js", "js", "html", "node"];
 function getUniqueValues(arr) {
@@ -34,17 +34,28 @@ function getUnVal(arr) {
 // удалить уникальные(не повторяющиеся) с массива
 
 function deleteUnicValues(arr) {
+  // проверка входящего массива
   // console.log(arr);
   const x = [];
+  //цыкл:обьявляем переменную i, даем начальное значение о,
+  // до конца массива, с 1м шагом.
   for (let i = 0; i < arr.length; i++) {
-    //    console.log(arr[1]);
+    //   проверка итерация элементов
+    //    console.log(arr[i]);//вывод всех элементов поочередно
+    // console.log(x[item]); //11 и 5undefined
     let item = arr[i];
+    // если элемент массива пустой тоесть возвращает undefined,
+    //то присваиваем этому элементу 0.
     if (x[item] === undefined) {
-      x[item] = 0;
+      // присвоить 0, что бы запустить счетчик x[item] += 1;
+      x[item] = 0; //x[item] это ключ обьекта
     }
+    //   если undefined уже стал 0, то добавляему ему 1
     x[item] += 1;
   }
-  console.log(x);
+  //-, 0, -, -, 0, -, 0, -, 0.......и так далее
+  //0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10,  11,12,..,41  индексы
+  console.log(x); //[empty,4,1,1,2,empty,1,empty,1....]
   const result = [];
   for (let i = 0; i < arr.length; i++) {
     // console.log(`'значение исходника': ${arr[i]} - повторений ${x[arr[i]]}`);

@@ -15,5 +15,8 @@
 // import "./js/keyboard-events-mouse.js";
 // import "./js/modal-window.js";
 // import "./js/iterating-over-array-methods.js";
-// import "./js/delegation.js";
-import "./js/iteration-arraysmethods.js";
+// import "./js/iteration-arraysmethods.js";
+// import "./js/bubling.js";
+// import "./js/delegation-add-button.js";
+// import "./js/delegation-highlight.js";
+import "./js/delegation-colorpicker.js";

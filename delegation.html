@@ -5,7 +5,31 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link rel="stylesheet" href="./styles.css" />
     <style>
+      /* bubling */
+      #parent,
+      #child,
+      #inner-child {
+        box-sizing: border-box;
+        display: block;
+
+        margin: 18px;
+        padding: 18px;
+        outline: 1px solid red;
+        border-radius: 3px;
+        color: rgb(14, 14, 11);
+        font-weight: 700;
+        font-size: 18;
+        background-color: teal;
+      }
+      #child {
+        background-color: rgb(103, 172, 24);
+      }
+      #inner-child {
+        background-color: rgb(194, 125, 23);
+      }
+      /* delegation */
       .container {
         display: flex;
         flex-wrap: wrap;
@@ -15,10 +39,57 @@
       button {
         margin: 4px;
       }
+      /* delegation-highliting */
+      .tags {
+        outline: 1px solid green;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        margin: 0;
+        padding: 8px;
+        background-color: #fff;
+        list-style: none;
+        user-select: none;
+      }
+      .tags__item {
+        margin: 4px;
+        padding: 10px;
+        outline: 1px solid rgb(91, 133, 105);
+      }
+      .tags__btn {
+        border: 1px solid rgb(1, 1, 43);
+        border-radius: 4px;
+        display: inline-block;
+        padding: 4px, 10px, 4px;
+        font-size: 24px;
+        font-family: inherit;
+        color: #212121;
+        font-weight: 500;
+        text-align: center;
+        white-space: nowrap;
+        text-decoration: none;
+        outline: none;
+        background-color: #fff;
+        cursor: pointer;
+      }
+      .tags__btn--active {
+        color: #fff;
+        background-color: rgb(5, 85, 68);
+      }
     </style>
   </head>
   <body>
-    <button class="js-add-btn">Добавить кнопку</button>
+    <!-- bubling -->
+    <!-- <div id="parent">
+      PARENT
+      <div id="child">
+        CHILD
+        <div id="inner-child">INNER-CHILD</div>
+      </div>
+    </div> -->
+    <!-- delegation -->
+    <!-- <button class="js-add-btn">Добавить кнопку</button>
     <hr />
 
     <div class="container js-containet">
@@ -27,7 +98,37 @@
       <button type="button">Кнопка3</button>
       <button type="button">Кнопка4</button>
       <button type="button">Кнопка5</button>
-    </div>
+    </div> -->
+
+    <!--delegation highlight  -->
+    <!-- <ul class="tags js-tags">
+      <li class="tags__item">
+        <button class="tags__btn" data-value="html">#html</button>
+      </li>
+      <li class="tags__item">
+        <button class="tags__btn" data-value="css">#css</button>
+      </li>
+      <li class="tags__item">
+        <button class="tags__btn" data-value="js">#js</button>
+      </li>
+      <li class="tags__item">
+        <button class="tags__btn" data-value="npm">#npm</button>
+      </li>
+      <li class="tags__item">
+        <button class="tags__btn" data-value="web">#web</button>
+      </li>
+      <li class="tags__item">
+        <button class="tags__btn" data-value="react">#react</button>
+      </li>
+      <li class="tags__item">
+        <button class="tags__btn" data-value="redux">#redux</button>
+      </li>
+      <li class="tags__item">
+        <button class="tags__btn" data-value="nodejs">#nodejs</button>
+      </li>
+    </ul> -->
+    <!-- delegation - colorpicker -->
+    <div class="palette js-palette"></div>
     <script src="./index.js" type="module"></script>
   </body>
 </html>
