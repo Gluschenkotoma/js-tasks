@@ -19,4 +19,5 @@
 // import "./js/bubling.js";
 // import "./js/delegation-add-button.js";
 // import "./js/delegation-highlight.js";
-import "./js/delegation-colorpicker.js";
+// import "./js/delegation-colorpicker.js";
+import "./js/chatty-events.js";
