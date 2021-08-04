@@ -137,6 +137,13 @@ function onImageLoaded(e) {
   e.target.classList.add("appear");
 }
 
+function addSrcAttrToLazyImages() {
+  const lazyImages = document.querySelectorAll('img[loading="lazy"]');
+  lazyImages.forEach((img) => {
+    img.src = img.dataset.src;
+  });
+}
+
 function addLazySizesScript() {
   const script = document.createElement("script");
   script.src =
@@ -146,11 +153,4 @@ function addLazySizesScript() {
   script.crossorigin = "anonymous";
   script.referrerpolicy = "no-referrer";
   document.body.appendChild(script);
-}
-
-function addSrcAttrToLazyImages() {
-  const lazyImages = document.querySelectorAll('img[loading="lazy"]');
-  lazyImages.forEach((img) => {
-    img.src = img.dataset.src;
-  });
 }
