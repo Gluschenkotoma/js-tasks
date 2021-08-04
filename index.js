@@ -16,6 +16,7 @@
 // import "./js/create-productcard.js";
 // import "./js/transaction-table.js";
 import "./js/lesson13DOM.js";
+import "./js/create-social-list.js";
 
 // import "./js/events.js";
 // import "./js/form-event.js";
