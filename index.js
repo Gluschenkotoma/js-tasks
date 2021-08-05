@@ -15,13 +15,14 @@
 // import "./js/colection-buttons.js";
 // import "./js/create-productcard.js";
 // import "./js/transaction-table.js";
-import "./js/lesson13DOM.js";
-import "./js/create-social-list.js";
+// import "./js/lesson13DOM.js";
+// import "./js/create-social-list.js";
 
 // import "./js/events.js";
 // import "./js/form-event.js";
 // import "./js/keyboard-events-mouse.js";
 // import "./js/modal-window.js";
+import "./js/lesson14-events.js";
 
 // import "./js/bubling.js";
 
