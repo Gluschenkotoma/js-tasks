@@ -22,7 +22,7 @@
 // import "./js/form-event.js";
 // import "./js/keyboard-events-mouse.js";
 // import "./js/modal-window.js";
-import "./js/lesson14-events.js";
+// import "./js/lesson14-events.js";
 
 // import "./js/bubling.js";
 
@@ -31,3 +31,5 @@ import "./js/lesson14-events.js";
 // import "./js/delegation-colorpicker.js";
 
 // import "./js/chatty-events-lazy-load.js";
+
+import "./js/mod9-lesson17.js";

@@ -1,0 +1,28 @@
+{
+  "name": "js-tasks",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node mod9-lesson17.js>"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Gluschenkotoma/js-tasks.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Gluschenkotoma/js-tasks/issues"
+  },
+  "homepage": "https://github.com/Gluschenkotoma/js-tasks#readme",
+  "dependencies": {
+    "joi": "^17.4.2"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.14.8",
+    "@babel/core": "^7.15.0",
+    "@babel/preset-env": "^7.15.0",
+    "parcel-bundler": "^1.12.5"
+  }
+}
