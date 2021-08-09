@@ -44,7 +44,7 @@ console.log("Hello It's mod9-lesson17.js!");
 // require("joi") --> импортировать библиотеку в код проэкта
 // const Joi = require("joi");
 // const passwordSchema = Joi.string().min(3).max(10).alphanum(); //схема валидации
-// console.log(passwordSchema.validate("qqqq"));
+// console.log(passwordSchema.validate("q"));
 // (--> node module9-lesson17.js в терминал)
 
 //  { value: 'q',
@@ -77,7 +77,7 @@ console.log("Hello It's mod9-lesson17.js!");
 // "scripts":{
 // "start-1": "echo \"Скрипт1\"",
 // "start-2": "echo \"Скрипт2\"" ,
-//  "all": "npm run start-1 && npm run start-1",}
+//  "all": "npm run start-1 && npm run start-2",}
 
 // package-lock.json - файл зависимостей
 // как зависимости зависят от зависимостей
@@ -163,11 +163,56 @@ console.log("Hello It's mod9-lesson17.js!");
 // export const fetchAllUsers = () => {console.log("fetchAllUsers")};
 // export const fetchAllUsersById = (id) => {console.log("fetchAllUsersById")};
 // export const updateAllUsersById = (id) => {console.log("updateAllUsersById")};
+// export const x=5;
 
 // index.js
-// import { fetchAllUsers, updateAllUsersById, x as value } from "./js/api" или
-//import *as apiService from './js/api'
-// console.log(apiService);//{x: 5, __esModule: true, fetchAllUsers: ƒ, fetchAllUsersById: ƒ, updateAllUsersById: ƒ}
+// 1) import { fetchAllUsers, updateAllUsersById, x as value } from "./js/api" несколько импортировать или
+// 2) import * as apiService from './js/api' --> все импортировать -->
+//--> console.log(apiService);//{x: 5, __esModule: true, fetchAllUsers: ƒ, fetchAllUsersById: ƒ, updateAllUsersById: ƒ}
 
 // x as value - переименование х на value
 // *as -забрать все
+
+// Импортировать с библиотеки
+
+// validate-password.js
+
+// import Joi from "joi";
+// console.log(Joi);
+// export default function validatePassword(password) {
+//   return true;
+// }
+
+// index.js
+
+//import validatePassword from "./js/validate-password"; --> в консоле -->
+// {_types: Set(11), alternatives: ƒ, any: ƒ, array: ƒ, boolean: ƒ, …}
+
+// ПРИМЕР
+// validate-password.js
+// import Joi from "joi";
+// const passSchema = Joi.string().min(3).max(10);
+// export default function validatePassword(password) {
+//   return passSchema.validate(password);
+// }
+
+// index.js
+// import validatePassword from "./js/validate-password";
+// console.log(validatePassword("qweqwe")); --> консоль --> {value: "qweqwe"}
+
+// ПРИМЕР Дерево зависимостей
+
+// api-service.js
+// import shortid from "shortid";
+// export const addUser = (name) => {
+//   const user = {
+//     id: shortid.generate(),
+//     name,
+//   };
+//   console.log(user);
+// };
+
+// index.js
+//import { addUser } from "./js/api-service";
+// addUser("mango"); -->консоль -->
+// --> {id: "qgcdfPwI_", name: "mango"}

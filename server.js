@@ -16,9 +16,9 @@ const listener = app.listen(4444, () => {
   console.log(`Веб сервер запущен на порте ${listener.address().port}`);
 }); //ввести в браузер localehost4444
 
-// terminal - node app.js
+// terminal - node server.js
 // Admin@DESKTOP-LPTUCB8 MINGW64 ~/Documents/GitHub/js-tasks (main)
-// $ node app.js
-// Helo World!It's app.js
+// $ node server.js
+// Helo World!It's server.js
 // Веб сервер запущен на порте 4444
 // Был запрос от браузера
