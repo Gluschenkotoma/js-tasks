@@ -10,8 +10,8 @@
 // добавить в проэкт в корень index.html, src/index.js
 // создать файл конфигурации webpack.config.js с Using a Configuration скопировать название и добавить в него :
 // 1.В файл webpack.config.js записать module.exports = {};(для добавления параметров)
-// 2.С Documentation -> Entry - > добавить entry: './src/index.js', откуда строить дерево зависимостей, точка входа
-// 3.С Documentation -> Entry - const path = require('path');
+// 2.С Documentation -> Entry - > ouptut-->добавить --> entry: './src/index.js', - откуда строить дерево зависимостей, точка входа
+// 3.С Documentation -> Entry - ouptut--> const path = require('path');
 // 4.output: {
 //     path: path.resolve(__dirname, 'dist'),
 //     filename: 'my-first-webpack.bundle.js',
