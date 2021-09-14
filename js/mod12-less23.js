@@ -97,5 +97,5 @@ function createItems(place, array) {
     })
     .join("");
   //   console.log(items);
-  place.insertAdjacentHTML("beforeend", items); //добавить в list(ul) items(li),
+  place.insertAdjacentHTML("beforeend", items); //добавить в photoList(ul) items(li),
 }
