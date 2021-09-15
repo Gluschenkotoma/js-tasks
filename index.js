@@ -34,4 +34,5 @@
 
 // import "./js/mod9-lesson17.js";
 // import "./js/mod11-lesson21.js";
-import "./js/mod12-less23.js";
+// import "./js/mod12-less23-req.js";
+import "./js/mod12-less23-requests.js";

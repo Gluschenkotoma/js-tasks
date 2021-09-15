@@ -1,3 +1,4 @@
+// http запросы
 const hero = document.querySelector(".hero");
 console.log(hero); //доступ на hero получен
 
